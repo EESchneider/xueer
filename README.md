@@ -7,3 +7,9 @@ By default, uses latexmk to compile TeX documents. If you have another preferred
 Configuration
 =============
 TODO
+
+TODO
+====
+* Fix configuration options
+* Environment and (possibly) command text objects
+* Replace `latexmk` with `pdftex`
