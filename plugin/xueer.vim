@@ -69,25 +69,3 @@ endif
 if !has('g:xueer_pdf_location')
     let g:xueer_pdf_location = '.'
 endif
-
-if g:xueer_mappings
-    augroup xueer_tex_imaps
-        autocmd!
-        autocmd FileType tex inoremap <expr><buffer> [[ xueer#CreateEnvironment()
-        autocmd FileType tex inoremap <expr><buffer> ,e xueer#CreateEnvironment('equation*')
-        autocmd FileType tex inoremap <expr><buffer> ,a xueer#CreateEnvironment('align*')
-        autocmd FileType tex inoremap <expr><buffer> ,, xueer#CreateCommand()
-        autocmd FileType tex inoremap <expr><buffer> ,s xueer#CreateCommand('section')
-        autocmd FileType tex inoremap <expr><buffer> ,S xueer#CreateCommand('subsection')
-        autocmd FileType tex inoremap <expr><buffer> ,b xueer#CreateCommand('textbf')
-        autocmd FileType tex inoremap <expr><buffer> ,i xueer#CreateCommand('textit')
-        autocmd FileType tex nnoremap <expr><buffer> <BS> xueer#OpenPDF()
-    augroup END
-endif
-
-if g:xueer_autorender
-    augroup xueer_tex_autorender
-        autocmd!
-        autocmd BufWritePost *.tex call {g:xueer_tex_compiler}()
-    augroup END
-endif
