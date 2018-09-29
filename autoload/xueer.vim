@@ -1,4 +1,4 @@
-function! SearchEnvironments(start, _, __)
+function! xueer#SearchEnvironments(start, _, __)
     let l:result = []
     for env in g:tex_environments
         if env[:len(a:start) - 1] ==# a:start
@@ -13,7 +13,7 @@ endfunction
 " places them inside it
 " CreateEnvironment(str) uses its argument as the name of its environment,
 " rather than prompting the user
-function! CreateEnvironment(...)
+function! xueer#CreateEnvironment(...)
     call inputsave()
     if a:0 == 0
         let l:env = input("Environment:\n> ", "", "customlist,SearchEnvironments")
@@ -34,7 +34,7 @@ endfunction
 " them in its first argument
 " CreateCommand(str) uses its argument as the name of the command, rather than
 " prompting the user
-function! CreateCommand(...)
+function! xueer#CreateCommand(...)
     call inputsave()
     if a:0 == 0
         let l:cmd = input("Command:\n> ")
@@ -50,7 +50,7 @@ function! CreateCommand(...)
     return "\\" . l:cmd . "{}\<Left>"
 endfunction
 
-function! OpenPDF()
+function! xueer#OpenPDF()
     silent execute '!' . g:xueer_pdf_viewer . ' ' 
                 \ . g:xueer_pdf_location . '/' . expand('%:r') . '.pdf &'
 endfunction
