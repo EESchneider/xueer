@@ -59,7 +59,7 @@ if !has('g:xueer_autorender')
 endif
 
 if !has('g:xueer_tex_compiler')
-    let g:xueer_tex_compiler = 'latexmk\ -pdf\ %;\ latexmk\ -c'
+    let g:xueer_tex_compiler = 'xueer#Compile'
 endif
 
 if !has('g:xueer_pdf_viewer')
@@ -88,9 +88,6 @@ endif
 if g:xueer_autorender
     augroup xueer_tex_autorender
         autocmd!
-        autocmd BufWritePost *.tex if filereadable(expand('%:R'))
-                    \ | silent! execute '!' . g:xueer_tex_compiler
-                    \ | redraw!
-                    \ | endif
+        autocmd BufWritePost *.tex call {g:xueer_tex_compiler}()
     augroup END
 endif

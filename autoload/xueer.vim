@@ -16,7 +16,7 @@ endfunction
 function! xueer#CreateEnvironment(...)
     call inputsave()
     if a:0 == 0
-        let l:env = input("Environment:\n> ", "", "customlist,SearchEnvironments")
+        let l:env = input("Environment:\n> ", "", "customlist,xueer#SearchEnvironments")
         if l:env ==# "" " the action was cancelled
             call inputrestore()
             return ""
@@ -26,7 +26,7 @@ function! xueer#CreateEnvironment(...)
     endif
 
     call inputrestore()
-    return '\\begin{' . l:env . '}\<CR>\<CR>\\end{' . l:env . '}\<Up>\<Esc>"_cc'
+    return "\\begin{" . l:env . "}\<CR>\<CR>\\end{" . l:env . "}\<Up>\<Esc>"_cc"
 endfunction
 
 " Takes 0 or 1 arguments.
@@ -53,4 +53,11 @@ endfunction
 function! xueer#OpenPDF()
     silent execute '!' . g:xueer_pdf_viewer . ' ' 
                 \ . g:xueer_pdf_location . '/' . expand('%:r') . '.pdf &'
+endfunction
+
+function xueer#Compile()
+    let l:directory = expand('%:h')
+    let l:outdir = l:directory . '/' . g:xueer_pdf_location
+    silent! execute "!latexmk '%' -outdir='" . l:outdir . "' -cd -pdf"
+    redraw!
 endfunction
