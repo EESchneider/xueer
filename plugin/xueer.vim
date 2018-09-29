@@ -91,5 +91,6 @@ if g:xueer_autorender
         autocmd BufWritePost *.tex if filereadable(expand('%:R'))
                     \ | silent! execute '!' . g:xueer_tex_compiler
                     \ | redraw!
+                    \ | endif
     augroup END
 endif
