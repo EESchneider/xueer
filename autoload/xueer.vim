@@ -58,7 +58,7 @@ endfunction
 function xueer#Compile()
     let l:directory = expand('%:h')
     let l:outdir = l:directory . '/' . g:xueer_pdf_location
-    silent! execute "!latexmk '%' -outdir='" . l:outdir . "' -cd -pdf;"
-                \ . "cd '" . outdir . "'; latexmk -c"
+    silent execute "!latexmk -cd -outdir='" . l:outdir . "' -pdf '%'; "
+                \ . "cd '" . outdir . "'; latexmk -c '" . expand('%:h') . ".pdf'"
     redraw!
 endfunction
