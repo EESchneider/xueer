@@ -26,7 +26,7 @@ function! xueer#CreateEnvironment(...)
     endif
 
     call inputrestore()
-    return "\\begin{" . l:env . "}\<CR>\<CR>\\end{" . l:env . "}\<Up>\<Esc>"_cc"
+    return "\\begin{" . l:env . "}\<CR>\<CR>\\end{" . l:env . "}\<Up>\<Esc>\"_cc"
 endfunction
 
 " Takes 0 or 1 arguments.
