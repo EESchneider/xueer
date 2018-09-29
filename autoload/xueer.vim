@@ -51,8 +51,8 @@ function! xueer#CreateCommand(...)
 endfunction
 
 function! xueer#OpenPDF()
-    silent execute '!' . g:xueer_pdf_viewer . ' ' 
-                \ . g:xueer_pdf_location . '/' . expand('%:r') . '.pdf &'
+    let l:document = expand('%:r') . '.pdf'
+    silent execute '!' . g:xueer_pdf_viewer . ' ' . expand('%:r') . ' &'
 endfunction
 
 function xueer#Compile()
