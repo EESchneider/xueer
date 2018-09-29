@@ -51,13 +51,14 @@ function! xueer#CreateCommand(...)
 endfunction
 
 function! xueer#OpenPDF()
-    let l:document = expand('%:r') . '.pdf'
-    silent execute '!' . g:xueer_pdf_viewer . ' ' . expand('%:r') . ' &'
+    let l:document = expand('%:h') . '/' . g:xueer_pdf_location . expand('%:r') . '.pdf'
+    silent execute '!' . g:xueer_pdf_viewer . ' ' . l:document . ' &'
 endfunction
 
 function xueer#Compile()
     let l:directory = expand('%:h')
     let l:outdir = l:directory . '/' . g:xueer_pdf_location
-    silent! execute "!latexmk '%' -outdir='" . l:outdir . "' -cd -pdf"
+    silent! execute "!latexmk '%' -outdir='" . l:outdir . "' -cd -pdf;"
+                \ . "cd '" . outdir . "'; latexmk -c"
     redraw!
 endfunction
