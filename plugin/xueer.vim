@@ -1,9 +1,9 @@
 " vim: foldmethod=marker foldmarker={{{,}}}
-if !has('g:xueer_mappings')
+if exists('g:xueer_mappings')
     let g:xueer_mappings = 1
 endif
 
-if !has('g:xueer_environments')
+if exists('g:xueer_environments')
     " let g:tex_environments (Long list) {{{
     let g:tex_environments =
                 \ [ "Bmatrix"
@@ -54,18 +54,18 @@ if !has('g:xueer_environments')
     " }}}
 endif
 
-if !has('g:xueer_autorender')
+if exists('g:xueer_autorender')
     let g:xueer_autorender = 1
 endif
 
-if !has('g:xueer_tex_compiler')
+if exists('g:xueer_tex_compiler')
     let g:xueer_tex_compiler = 'xueer#Compile'
 endif
 
-if !has('g:xueer_pdf_viewer')
+if exists('g:xueer_pdf_viewer')
     let g:xueer_pdf_viewer = 'zathura'
 endif
 
-if !has('g:xueer_pdf_location')
+if exists('g:xueer_pdf_location')
     let g:xueer_pdf_location = '.'
 endif
