@@ -2,7 +2,7 @@ if g:xueer_mappings
     inoremap <expr><buffer> [[ xueer#CreateEnvironment()
     inoremap <expr><buffer> ,e xueer#CreateEnvironment('equation*')
     inoremap <expr><buffer> ,a xueer#CreateEnvironment('align*')
-    inoremap <expr><buffer> ,m xueer#CreateEnvironment('pmatrix')
+    inoremap <expr><buffer> ,m xueer#CreateEnvironment('bmatrix')
     inoremap <expr><buffer> ,, xueer#CreateCommand()
     inoremap <expr><buffer> ,s xueer#CreateCommand('section')
     inoremap <expr><buffer> ,S xueer#CreateCommand('subsection')
