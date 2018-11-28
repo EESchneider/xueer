@@ -2,17 +2,13 @@ if g:xueer_mappings
     inoremap <expr><buffer> [[ xueer#CreateEnvironment()
     inoremap <expr><buffer> ,e xueer#CreateEnvironment('equation*')
     inoremap <expr><buffer> ,a xueer#CreateEnvironment('align*')
+    inoremap <expr><buffer> ,m xueer#CreateEnvironment('pmatrix')
     inoremap <expr><buffer> ,, xueer#CreateCommand()
     inoremap <expr><buffer> ,s xueer#CreateCommand('section')
     inoremap <expr><buffer> ,S xueer#CreateCommand('subsection')
     inoremap <expr><buffer> ,b xueer#CreateCommand('textbf')
     inoremap <expr><buffer> ,i xueer#CreateCommand('textit')
-    inoremap <expr><buffer> ,m xueer#CreateCommand('pmatrix')
     nnoremap <expr><buffer> <BS> xueer#OpenPDF()
-endif
-
-if g:xueer_text_objects
-    onoremap <buffer><silent> ie :<C-U>normal! :call search('\m\\begin{.*}', 'bceW')\<CR>lv/\m\\end\<CR>\<BS>
 endif
 
 if g:xueer_autorender
