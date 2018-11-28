@@ -7,7 +7,12 @@ if g:xueer_mappings
     inoremap <expr><buffer> ,S xueer#CreateCommand('subsection')
     inoremap <expr><buffer> ,b xueer#CreateCommand('textbf')
     inoremap <expr><buffer> ,i xueer#CreateCommand('textit')
+    inoremap <expr><buffer> ,m xueer#CreateCommand('pmatrix')
     nnoremap <expr><buffer> <BS> xueer#OpenPDF()
+endif
+
+if g:xueer_text_objects
+    onoremap <buffer><silent> ie :<C-U>normal! :call search('\m\\begin{.*}', 'bceW')\<CR>lv/\m\\end\<CR>\<BS>
 endif
 
 if g:xueer_autorender
@@ -18,4 +23,3 @@ if g:xueer_autorender
         autocmd BufWritePost *.tex execute 'call {g:xueer_tex_compiler}()'
     augroup END
 endif
-
