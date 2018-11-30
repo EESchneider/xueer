@@ -58,7 +58,8 @@ endfunction
 function xueer#Compile()
     let l:directory = expand('%:h')
     let l:outdir = l:directory . '/' . g:xueer_pdf_location
+    let l:root_glob = shellescape(expand('%:r')) . '*'
     silent execute "!latexmk -cd -outdir='" . l:outdir . "' -pdf '%'; "
-                \ . "cd '" . outdir . "'; latexmk -c '" . expand('%:h') . ".pdf'"
+                \ . "cd '" . outdir . "'; latexmk -c " . l:root_glob
     redraw!
 endfunction
